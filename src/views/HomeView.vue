@@ -1,18 +1,27 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <SplashScreenComponent/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import SplashScreenComponent from '@/components/SplashScreenComponent.vue'
 
 export default {
   name: 'HomeView',
   components: {
-    HelloWorld
+    SplashScreenComponent
   }
 }
 </script>
+
+<style scoped>
+.home{
+  width: 100%;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>

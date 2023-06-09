@@ -1,0 +1,39 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --color-primary-nav-footer: #2A2A2A;
+    --color-secondary-text: #e4e4e4;
+    --color-tertiary-background-color: #22243b;
+    --color-quaternary-button: #1E1E33;    
+}
+main {
+    overflow: hidden;
+    min-height: 90vh;
+    margin-top: 150px;
+}
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-shadow: 0 0 8px black;
+    z-index: 20;
+}
+
+.nav-link:hover {
+    color: darkcyan !important;
+    scale: 1.05;
+    border-radius: 2rem;
+}
+  
+.nav-item {
+    font-size: 1.5rem;
+    margin-right: 2rem;
+    letter-spacing: 0.3rem;
+    text-decoration: none !important;
+}
+  
