@@ -3,15 +3,15 @@
   <main>
     <router-view/>
   </main>
-  <FooterBottomComponent/>
+  <!-- <FooterBottomComponent/> -->
 </template>
 
 <script>
 import NavBarComponent from './components/NavBarComponent.vue'
-import FooterBottomComponent from './components/FooterBottomComponent.vue'
+// import FooterBottomComponent from './components/FooterBottomComponent.vue'
 export default {
   components: {
-    FooterBottomComponent,
+    // FooterBottomComponent
     NavBarComponent
   }
 };

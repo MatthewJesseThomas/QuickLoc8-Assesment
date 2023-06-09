@@ -56,6 +56,7 @@ export default {
 #map {
     height: 100vh;
     width: 100%;
+    z-index: 0;
 }
 
 h1 {
