@@ -39,6 +39,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 1000;
 }
 
 .splash-screen__background {
@@ -91,7 +92,9 @@ export default {
 
     100% {
         opacity: 0.5;
+        display: none;
     }
+    
 }
 
 @keyframes growLogo {
