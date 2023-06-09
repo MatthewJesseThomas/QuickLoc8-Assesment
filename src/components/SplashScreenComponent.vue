@@ -48,7 +48,7 @@ export default {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    animation: pulseBackground 2s infinite;
+    animation: pulseBackground 3.5s infinite;
 }
 
 .splash-screen__content {
