@@ -19,7 +19,7 @@ export default {
         setTimeout(() => {
             // Code to hide the splash screen after a certain duration
             this.hideSplashScreen();
-        }, 3000); // Adjust the duration as needed
+        }, 3500); // Adjust the duration as needed
     },
     methods: {
         hideSplashScreen() {
