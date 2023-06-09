@@ -1,6 +1,5 @@
 <template>
     <div>
-        <h1>I'm Your Map, I'm The Map...</h1>
         <div id="map"></div>
     </div>
 </template>
