@@ -4,6 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 :root{
     --color-primary-nav-footer: #2A2A2A;
@@ -13,8 +14,11 @@
 }
 main {
     overflow: hidden;
-    min-height: 90vh;
+    min-height: 100vh;
     margin-top: 150px;
+}
+body{
+    max-height: 100%;
 }
 .navbar {
     position: fixed;
@@ -36,4 +40,6 @@ main {
     letter-spacing: 0.3rem;
     text-decoration: none !important;
 }
-  
+footer{
+    position: fixed !important;
+}

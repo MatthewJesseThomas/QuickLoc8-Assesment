@@ -17,7 +17,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -28,6 +28,6 @@ export default {
   overflow-y: hidden;
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: 100vh;
+  max-height: 100vh;
 }
 </style>
