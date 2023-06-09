@@ -1,6 +1,6 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div class="price">
+    <h1>This is a Price page</h1>
   </div>
   <h3 class="heading">Lorem 4 Life</h3>
   <div class="scrollable-content">
@@ -20,7 +20,7 @@ export default {
 </script>
 
 <style scoped>
-.about {
+.price {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -44,7 +44,7 @@ export default {
 
 /* Media query for mobile devices */
 @media only screen and (max-width: 768px) {
-  .about {
+  .price {
     margin-top: 50px;
   }
 
