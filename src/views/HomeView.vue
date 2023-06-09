@@ -2,7 +2,7 @@
   <div class="home">
     <SplashScreenComponent/>
   </div>
-  <div id="the-map">
+  <div>
     <Map/>
   </div>
 </template>
@@ -31,10 +31,5 @@ export default {
   justify-content: center;
   align-items: center;
 }
-.the-map{
-  margin: auto;
-  align-content: center;
-  align-items: center;
-  justify-content: center;
-}
+
 </style>
