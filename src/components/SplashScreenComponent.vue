@@ -3,11 +3,11 @@
         <div class="splash-screen__background"></div>
         <div class="splash-screen__content">
             <!-- Add your splash screen content here -->
-            <img src="https://i.postimg.cc/dtzHb8Dh/Quikloc8-Logo.png" alt="logo" class="splash-screen__logo" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); overflow: hidden;">
+            <img src="https://i.postimg.cc/dtzHb8Dh/Quikloc8-Logo.png" alt="logo" class="splash-screen__logo">
         </div>
     </div>
 </template>
-  
+
 <script>
 export default {
     data() {
@@ -19,7 +19,7 @@ export default {
         setTimeout(() => {
             // Code to hide the splash screen after a certain duration
             this.hideSplashScreen();
-        }, 3500); // Adjust the duration as needed
+        }, 3000); // Adjust the duration as needed
     },
     methods: {
         hideSplashScreen() {
@@ -28,7 +28,7 @@ export default {
     }
 }
 </script>
-  
+
 <style scoped>
 .splash-screen {
     position: fixed;
@@ -59,7 +59,11 @@ export default {
 
 .splash-screen__logo {
     max-width: 600px;
-    animation: growLogo 2s infinite;
+    animation: growLogo 3.5s infinite;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
 }
 
 .splash-screen__logo {
@@ -92,15 +96,15 @@ export default {
 
 @keyframes growLogo {
     0% {
-        transform: scale(1);
+        transform: scale(0.05);
     }
 
     50% {
-        transform: scale(1.1);
+        transform: scale(1.5);
     }
 
     100% {
-        transform: scale(1);
+        transform: scale(3);
     }
 }
 </style>

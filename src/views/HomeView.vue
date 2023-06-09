@@ -2,18 +2,25 @@
   <div class="home">
     <SplashScreenComponent/>
   </div>
+  <div id="the-map">
+    <Map/>
+  </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import SplashScreenComponent from '@/components/SplashScreenComponent.vue'
+import Map from '@/components/MapComponent.vue'
 
 export default {
   name: 'HomeView',
   components: {
-    SplashScreenComponent
+    SplashScreenComponent,
+    Map
   }
-}
+};
+
+
 </script>
 
 <style scoped>
