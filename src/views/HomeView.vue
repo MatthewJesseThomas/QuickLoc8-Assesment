@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <SplashScreenComponent/>
+    <Map/>
   </div>
 </template>
 
