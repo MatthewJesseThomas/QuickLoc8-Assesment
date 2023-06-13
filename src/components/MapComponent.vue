@@ -1,4 +1,5 @@
 <template>
+  
   <div>
     <div id="map"></div>
   </div>
@@ -22,7 +23,7 @@ export default {
       attribution: '© OpenStreetMap',
     }).addTo(map);
 
-    map.locate({ setView: true, maxZoom: 16 });
+    map.locate({ setView: true, maxZoom: 16, maxAccuracy: 1 });
 
     function onLocationFound(e) {
       const radius = e.accuracy;
@@ -33,14 +34,6 @@ export default {
         .openPopup();
 
       L.circle(e.latlng, radius).addTo(map);
-
-      // Loop through the vehicle coordinates and add markers for each location
-      vehicleCoordinates.forEach((location) => {
-        L.marker([location.latitude, location.longitude])
-          .addTo(map)
-          .bindPopup(`Heading: ${location.heading}`)
-          .openPopup();
-      });
     }
 
     map.on('locationfound', onLocationFound);
@@ -53,6 +46,7 @@ export default {
   }
 };
 </script>
+
   
 <style scoped>
 #map {

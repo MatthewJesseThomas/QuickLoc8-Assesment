@@ -11,7 +11,7 @@
         <p>{{ message }}</p>
     </div>
 </template>
-  
+
 <script>
 export default {
     name: 'Message',
@@ -43,7 +43,7 @@ export default {
     },
 };
 </script>
-  
+
 <style scoped>
 .message {
     padding: 1rem;
@@ -121,4 +121,3 @@ export default {
     }
 }
 </style>
-  
