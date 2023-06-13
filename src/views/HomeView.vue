@@ -10,7 +10,7 @@
 <script>
 // @ is an alias to /src
 import SplashScreenComponent from '@/components/SplashScreenComponent.vue'
-import Map from '@/components/MapComponent.vue'
+import Map from '@/components/MapComponent.vue';
 
 export default {
   name: 'HomeView',

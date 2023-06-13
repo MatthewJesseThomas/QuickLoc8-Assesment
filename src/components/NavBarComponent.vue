@@ -17,9 +17,6 @@
                         <router-link class="nav-link" to="/">Home</router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link class="nav-link" to="/prices">Prices</router-link>
-                    </li>
-                    <li class="nav-item">
                         <router-link class="nav-link" to="/message">Messages</router-link>
                     </li>
                     <li class="nav-item">
