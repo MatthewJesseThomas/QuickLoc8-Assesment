@@ -1,10 +1,9 @@
 <template>
-  
   <div>
     <div id="map"></div>
   </div>
 </template>
-  
+
 <script>
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -23,7 +22,7 @@ export default {
       attribution: '© OpenStreetMap',
     }).addTo(map);
 
-    map.locate({ setView: true, maxZoom: 16, maxAccuracy: 1 });
+    map.locate({ setView: true, maxZoom: 16, maxAccuracy: 1, watch: true });
 
     function onLocationFound(e) {
       const radius = e.accuracy;
@@ -47,7 +46,7 @@ export default {
 };
 </script>
 
-  
+
 <style scoped>
 #map {
   height: 100vh;
@@ -59,4 +58,3 @@ h1 {
   text-align: center;
 }
 </style>
-  

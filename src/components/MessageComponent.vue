@@ -1,49 +1,72 @@
 <template>
-    <div v-if="show" :class="['message', variant]">
-        <div class="avatar">{{ getAvatarIcon() }}</div>
-        <button class="close-btn" @click="dismiss">
-            <svg class="close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path
-                    d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95 1.414-1.414z" />
-            </svg>
-            Close
-        </button>
-        <p>{{ message }}</p>
+    <div>
+        <div v-if="show" :class="['message', variant]">
+            <div class="avatar">{{ getAvatarIcon() }}</div>
+            <button class="close-btn" @click="dismiss">
+                <svg class="close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95 1.414-1.414z" />
+                </svg>
+                Close
+            </button>
+        </div>
+        <ul>
+            <li v-for="message in messages" :key="message.id">
+                <p>{{ message.message }}</p>
+                <p>{{ message.subject }}</p>
+                <p>{{ message.display }}</p>
+            </li>
+        </ul>
     </div>
 </template>
-
+  
 <script>
+import jsonData from '../JSON/messages.json';
+
 export default {
-    name: 'Message',
-    props: {
-        variant: {
-            type: String,
-            default: 'info',
-            validator: (value) => ['info', 'success', 'warning', 'error'].includes(value),
-        },
-        message: {
-            type: String,
-            required: true,
-        },
-    },
     data() {
         return {
+            messages: [],
             show: true,
         };
     },
+    mounted() {
+        this.fetchMessages();
+    },
     methods: {
-        dismiss() {
-            this.show = false;
+        async fetchMessages() {
+            try {
+                this.messages = jsonData.messages;
+            } catch (error) {
+                console.error('Error fetching messages:', error);
+            }
         },
         getAvatarIcon() {
-            const firstLetter = this.message.charAt(0).toUpperCase();
-            const isLetter = /^[A-Z]$/i.test(firstLetter);
-            return isLetter ? firstLetter : '?';
+            if (this.messages && this.messages.length > 0) {
+                const type = this.messages[0].type;
+                switch (type) {
+                    case 'info':
+                        return 'ℹ️';
+                    case 'success':
+                        return '✅';
+                    case 'warning':
+                        return '⚠️';
+                    case 'error':
+                        return '❌';
+                    default:
+                        return 'Avatar';
+                }
+            } else {
+                return 'Avatar';
+            }
+        },
+        dismiss() {
+            this.show = false;
         },
     },
 };
 </script>
-
+  
 <style scoped>
 .message {
     padding: 1rem;
