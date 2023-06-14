@@ -1,14 +1,11 @@
 <template>
     <div>
+        <!-- Message component -->
         <div v-if="show" :class="['message', variant]">
-            <ul>
-                <li v-for="message in messages" :key="message.id">
-                    <p>{{ message.message }}</p>
-                    <p>{{ message.subject }}</p>
-                    <p>{{ message.display }}</p>
-                </li>
-            </ul>
+            <!-- Avatar -->
             <div class="avatar">{{ getAvatarIcon() }}</div>
+
+            <!-- Close button -->
             <button class="close-btn" @click="dismiss">
                 <svg class="close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path
@@ -17,7 +14,16 @@
                 Close
             </button>
         </div>
-        
+
+        <!-- Messages list -->
+        <ul v-if="messages && messages.length > 0">
+            <li v-for="message in messages" :key="message.id">
+                <p>{{ message.message }}</p>
+                <p>{{ message.subject }}</p>
+                <p>{{ message.display }}</p>
+            </li>
+        </ul>
+        <p v-else>No messages to display.</p>
     </div>
 </template>
   
@@ -27,7 +33,7 @@ import jsonData from '../JSON/messages.json';
 export default {
     data() {
         return {
-            messages: [],
+            messages: undefined,
             show: true,
         };
     },
@@ -37,7 +43,7 @@ export default {
     methods: {
         async fetchMessages() {
             try {
-                this.messages = jsonData.messages;
+                this.messages = jsonData.messages || [];
             } catch (error) {
                 console.error('Error fetching messages:', error);
             }
@@ -45,18 +51,13 @@ export default {
         getAvatarIcon() {
             if (this.messages && this.messages.length > 0) {
                 const type = this.messages[0].type;
-                switch (type) {
-                    case 'info':
-                        return 'ℹ️';
-                    case 'success':
-                        return '✅';
-                    case 'warning':
-                        return '⚠️';
-                    case 'error':
-                        return '❌';
-                    default:
-                        return 'Avatar';
-                }
+                const iconMap = {
+                    info: 'ℹ️',
+                    success: '✅',
+                    warning: '⚠️',
+                    error: '❌',
+                };
+                return iconMap[type] || 'Avatar';
             } else {
                 return 'Avatar';
             }
@@ -66,9 +67,10 @@ export default {
         },
     },
 };
-</script>
-  
+</script> 
+
 <style scoped>
+/* Styles for the message component and avatar */
 .message {
     padding: 1rem;
     border-radius: 4px;
@@ -92,6 +94,7 @@ export default {
     margin-right: 1rem;
 }
 
+/* Styles for different message types */
 .info {
     background-color: #e2e8f0;
     color: #718096;
@@ -112,6 +115,7 @@ export default {
     color: #e53e3e;
 }
 
+/* Styles for the close button */
 .close-btn {
     background: none;
     border: none;
@@ -132,6 +136,7 @@ export default {
     margin-right: 0.5rem;
 }
 
+/* Responsive styles */
 @media only screen and (max-width: 768px) {
     .message {
         padding: 0.75rem;
