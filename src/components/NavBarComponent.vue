@@ -19,9 +19,6 @@
                     <li class="nav-item">
                         <router-link class="nav-link" to="/message">Messages</router-link>
                     </li>
-                    <li class="nav-item">
-                        <router-link class="nav-link" to="/vehicle">Vehicles</router-link>
-                    </li>
                 </ul>
             </div>
           </div>
@@ -34,7 +31,7 @@ export default {
 
 }
 </script>
-  
+
 <style scoped>
 nav {
     box-shadow: 0.3vw 0.5vw 0.45vw 0.1vw;
