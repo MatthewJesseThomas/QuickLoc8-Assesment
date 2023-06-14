@@ -91,7 +91,7 @@ export default {
     }
 
     100% {
-        opacity: 0.5;
+        opacity: 1;
         display: none;
     }
     

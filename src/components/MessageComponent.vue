@@ -1,29 +1,17 @@
 <template>
-    <div>
-        <!-- Message component -->
-        <div v-if="show" :class="['message', variant]">
-            <!-- Avatar -->
-            <div class="avatar">{{ getAvatarIcon() }}</div>
 
-            <!-- Close button -->
-            <button class="close-btn" @click="dismiss">
-                <svg class="close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path
-                        d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95 1.414-1.414z" />
-                </svg>
-                Close
-            </button>
+    <div class="text-align-center">
+        <div class="container">
+            <div style="display: inline-block;">
+                <div class="row" v-for="message in messages" :key="message.id">
+                    <div class="row">
+                        <p>{{ message.message }}</p>
+                        <p>{{ message.subject }}</p>
+                        <p>{{ message.display }}</p>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <!-- Messages list -->
-        <ul v-if="messages && messages.length > 0">
-            <li v-for="message in messages" :key="message.id">
-                <p>{{ message.message }}</p>
-                <p>{{ message.subject }}</p>
-                <p>{{ message.display }}</p>
-            </li>
-        </ul>
-        <p v-else>No messages to display.</p>
     </div>
 </template>
   
@@ -33,39 +21,10 @@ import jsonData from '../JSON/messages.json';
 export default {
     data() {
         return {
-            messages: undefined,
+            messages: jsonData,
             show: true,
         };
-    },
-    mounted() {
-        this.fetchMessages();
-    },
-    methods: {
-        async fetchMessages() {
-            try {
-                this.messages = jsonData.messages || [];
-            } catch (error) {
-                console.error('Error fetching messages:', error);
-            }
-        },
-        getAvatarIcon() {
-            if (this.messages && this.messages.length > 0) {
-                const type = this.messages[0].type;
-                const iconMap = {
-                    info: 'ℹ️',
-                    success: '✅',
-                    warning: '⚠️',
-                    error: '❌',
-                };
-                return iconMap[type] || 'Avatar';
-            } else {
-                return 'Avatar';
-            }
-        },
-        dismiss() {
-            this.show = false;
-        },
-    },
+    }
 };
 </script> 
 
