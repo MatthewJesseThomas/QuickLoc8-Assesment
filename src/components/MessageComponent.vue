@@ -1,6 +1,13 @@
 <template>
     <div>
         <div v-if="show" :class="['message', variant]">
+            <ul>
+                <li v-for="message in messages" :key="message.id">
+                    <p>{{ message.message }}</p>
+                    <p>{{ message.subject }}</p>
+                    <p>{{ message.display }}</p>
+                </li>
+            </ul>
             <div class="avatar">{{ getAvatarIcon() }}</div>
             <button class="close-btn" @click="dismiss">
                 <svg class="close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -10,13 +17,7 @@
                 Close
             </button>
         </div>
-        <ul>
-            <li v-for="message in messages" :key="message.id">
-                <p>{{ message.message }}</p>
-                <p>{{ message.subject }}</p>
-                <p>{{ message.display }}</p>
-            </li>
-        </ul>
+        
     </div>
 </template>
   

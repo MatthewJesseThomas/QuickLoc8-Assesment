@@ -10,6 +10,7 @@ import 'leaflet/dist/leaflet.css';
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css';
 import 'leaflet-defaulticon-compatibility';
 import Taxi from "../assets/ic_new_white_taxi.png";
+import Vehicles from '../JSON/vehicleCoordinates.json';
 
 export default {
   mounted() {
@@ -34,6 +35,18 @@ export default {
         .openPopup();
 
       L.circle(e.latlng, radius).addTo(map);
+
+      // Display vehicles with markers
+      for (const vehicle of Vehicles) {
+        const marker = L.marker([vehicle.latitude, vehicle.longitude], {
+          icon: L.icon({
+            iconUrl: Taxi,
+            iconSize: [32, 32],
+          }),
+        }).addTo(map);
+
+        marker.bindPopup(vehicle.heading);
+      }
     }
 
     map.on('locationfound', onLocationFound);
